@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+ 
+ 
+ <title>Article: The Memory Controller Wall — Intel FPGA vs Nvidia GPU - 27 January 2020 - Gate-Array.com</title>
+ <!--[if lt IE 9]>
+ <script type="text/javascript">
+ var e = ("header,footer,article,aside,section,nav").split(',');
+ for (var i = 0; i < e.length; i++) {
+ document.createElement(e[i]);
+ }
+ </script>
+ <![endif]-->
+ <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700&subset=latin,cyrillic" rel="stylesheet" type="text/css" />
+ <link type="text/css" rel="stylesheet" href="http://gate-array.com/gate-array.css" />
+ 
+
+ 
+ <meta property="og:site_name" content= "Gate-Array.com" />
+ <meta property="og:url" content="http://gate-array.com/news/article_the_memory_controller_wall_intel_fpga_vs_nvidia_gpu/2020-01-27-56" />
+ <meta property="og:type" content="article" />
+ <meta property="og:title" content="Article: The Memory Controller Wall — Intel FPGA vs Nvidia GPU" />
+ <meta name="og:description" content="Engineers from Edgecotix developed an OpenCL-based memory bandwidth benchmark suite to analyze the efficiency of the memory controller on Intel FPGAs. The suite covers multiple memory access patterns, namely sequential access, 1D blocking, and 1.5D/2..." />
+ <meta property="og:image" content="/_nw/0/96465118.png"/>
+ <meta property="twitter:image" content="/_nw/0/96465118.png"/>
+ <meta property="og:image:type" content="image/jpeg" />
+ <meta property="og:image:width" content="200"> 
+ <meta property="og:image:height" content="200">
+ 
+ 
+
+
+ 
+ 
+ 
+	<link rel="stylesheet" href="/.s/src/base.min.css" />
+	<link rel="stylesheet" href="/.s/src/layer7.min.css" />
+
+	<script src="/.s/src/jquery-1.12.4.min.js"></script>
+	
+	<script src="/.s/src/uwnd.min.js"></script>
+	<script type="text/javascript" src="//s22.ucoz.net/cgi/uutils.fcg?a=uSD&ca=2&ug=999&isp=1&r=0.911225107074635"></script>
+<script type="text/javascript">//------------UCOZ-JS-INIT_CODE-----------
+	window.ulb = {photoPage:"Go to the page with the photo", closeBtn:"Close", error:"The requested content can&#39;t be uploaded&lt;br/&gt;Please try again later.", next:"Next", prev:"Previous", btnPlay:"Start slideshow", btnToggle:"Change size", };
+//------------UCOZ-JS-END-----------</script>
+
+	<link rel="stylesheet" href="/.s/src/ulightbox/ulightbox.min.css" />
+	<link rel="stylesheet" href="/.s/src/socCom.css" />
+	<script src="/.s/src/ulightbox/ulightbox.min.js"></script>
+	<script src="https://sys000.ucoz.net/cgi/uutils.fcg?a=soc_comment_get_data&site=egate-array"></script>
+	<script src="/.s/src/socCom.js"></script>
+	<script type="text/javascript">//------------UCOZ-JS-CODE-----------
+$(function() {
+		$('#fCode').on('keyup', function(event) {
+			try {checkSecure(); } catch(e) {}
+		});
+	});
+	
+//------------UCOZ-JS-END-----------
+</script>
+
+	<style type="text/css">.UhideBlock{display:none; }
+</style>
+	<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit;noads?r"+escape(document.referrer)+(screen&&";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth||screen.pixelDepth))+";u"+escape(document.URL)+";"+Date.now();</script>
+<script type="text/javascript">//<!--
+	function uSocialLogin(t) {
+		var params = { 'facebook':{ 'width':950, 'height':520 }, 'google':{ 'width':700, 'height':600 }, 'twitter':{ 'width':800, 'height':400 } };
+		var ref = escape(location.protocol + '//' + ('gate-array.com' || location.hostname) + location.pathname + ((location.hash ? ( location.search ? location.search + '&' : '?' ) + 'rnd=' + Date.now() + location.hash : ( location.search || '' ))));
+		// var ref = escape(location.href);
+		window.open('/'+t+'?ref='+ref,'conwin','width='+params[t].width+',height='+params[t].height+',status=1,resizable=1,left='+parseInt((screen.availWidth/2)-(params[t].width/2))+',top='+parseInt((screen.availHeight/2)-(params[t].height/2)-20)+'screenX='+parseInt((screen.availWidth/2)-(params[t].width/2))+',screenY='+parseInt((screen.availHeight/2)-(params[t].height/2)-20));
+		return false;
+	}
+//--></script>
+
+<link type="text/css" rel="stylesheet" href="/.s/src/social.css" />
+</head>
+ <body class="t-body">
+ <div id="utbr8214" rel="s22"></div>
+ <!--U1AHEADER1Z-->
+<header>
+	<div id="top" class="clearfix">
+		<div class="t-container">
+			
+			<div id="show-search" class="show-search"></div>
+			<div id="b-search" class="b-search pull-right b-search-min">
+				<div class="searchForm"><form onsubmit="this.sfSbm.disabled=true" method="get" style="margin:0" action="/search/"><div align="center" class="schQuery"><input type="text" name="q" maxlength="30" size="20" class="queryField" /></div><div align="center" class="schBtn"><input type="submit" class="searchSbmFl" name="sfSbm" value="Search" /></div></form></div>
+			</div>
+			
+			<div id="show-menu" class="show-menu"></div>
+			<nav>
+				<!-- <sblock_nmenu> -->
+<!-- <bc> --><div id="uNMenuDiv1" class="uMenuV"><ul class="uMenuRoot">
+<li><a  href="/" ><span>Home page</span></a></li>
+<li><a  href="/index/0-2" ><span>Site info</span></a></li>
+<li><a  href="/publ" ><span>Publisher</span></a></li></ul></div><!-- </bc> -->
+<!-- </sblock_nmenu> -->
+			</nav>
+		</div>
+	</div>
+	<div class="b-usermenu t-container">
+		
+		<a title="Sign Up" href="/register"><!--<s3089>-->Sign Up<!--</s>--></a> | <a title="Log In" href="javascript:;" rel="nofollow" onclick="new _uWnd('LF', ' ', -250, -110, {autosize:1, closeonesc:1, resize:1 }, {url:'/index/40' } ); return false;"><!--<s3087>-->Log In<!--</s>--></a>
+		
+	</div>
+</header>
+<!--/U1AHEADER1Z-->
+ <div class="b-main t-container clearfix">
+ <!-- <middle> -->
+ <div class="b-logo b-white logo__content__border">
+ <a title="Home" href="http://gate-array.com/"><img class="logo-img" src="/.s/t/1089/logo-img.png" alt=""/></a>
+ <div class="site-title"><!-- <logo> -->Gate-Array.com<!-- </logo> --></div>
+ <div class="site-slogan">FPGA Developers Community</div>
+ </div>
+ <div class="b-maincontent b-white articles__content__border" role="main">
+ <!--U1PROMO1Z--><!--/U1PROMO1Z-->
+ <div class="content-padding">
+ <!-- <body> --><div class="breadcrumbs-wrapper">
+ <div class="breadcrumbs"><a href="http://gate-array.com/"><!--<s5176>-->Home<!--</s>--></a> &raquo; <a class="dateBar" href="/news/2020-00">2020</a> &raquo; <a class="dateBar" href="/news/2020-01">January</a> &raquo; <a class="dateBar" href="/news/2020-01-27">27</a> &raquo; Article: The Memory Controller Wall — Intel FPGA vs Nvidia GPU</div>
+ </div><hr />
+ <table border="0" width="100%" cellspacing="1" cellpadding="2" class="eBlock">
+ <tr><td width="100%"><div class="eTitle"><div style="float:right;font-size:9px;">10:06 </div>Article: The Memory Controller Wall — Intel FPGA vs Nvidia GPU</div></td></tr>
+ <tr><td class="eMessage"><p>Engineers from <a href="https://www.edgecortix.com/" target="_blank"><strong>Edgecotix</strong></a> developed an OpenCL-based memory bandwidth benchmark suite&nbsp;to analyze the efficiency of the memory controller on Intel FPGAs. The suite covers multiple memory access patterns, namely sequential access, 1D blocking, and 1.5D/2.5D overlapped blocking (N.5D refers to blocking N dimensions of an (N+1)D input and streaming the remaining one [3]). Moreover, it provides control over multiple compile-time and run-time parameters such as number of input/output buffers, kernel programming model (NDRange or Single Work-item), on-chip channels between read and write, vector size, block size, halo size, buffer padding, operating frequency, and interleaving. An overview of the supported memory access patterns and input/output buffer configurations are shown below.</p>
+
+<p><a href="https://medium.com/edgecortix/the-memory-controller-wall-intel-fpga-vs-nvidia-gpu-c28560c68139" target="_blank"><strong>Continue reading the article</strong></a></p>
+
+<p style="text-align: center;"><strong><!--IMG1--><a href="/_nw/0/96465118.png" class="ulightbox" target="_blank" title="Click to view in full size..."><img style="margin:0;padding:0;border:0;" src="/_nw/0/s96465118.jpg" align="" /></a><!--IMG1--></strong></p> </td></tr>
+ <tr><td colspan="2" class="eDetails">
+ <div class="rate-stars-wrapper" style="float:right">
+		<style type="text/css">
+			.u-star-rating-15 { list-style:none;margin:0px;padding:0px;width:75px;height:15px;position:relative;background: url('/.s/t/1089/rating15.png') top left repeat-x }
+			.u-star-rating-15 li{ padding:0px;margin:0px;float:left }
+			.u-star-rating-15 li a { display:block;width:15px;height: 15px;line-height:15px;text-decoration:none;text-indent:-9000px;z-index:20;position:absolute;padding: 0px;overflow:hidden }
+			.u-star-rating-15 li a:hover { background: url('/.s/t/1089/rating15.png') left center;z-index:2;left:0px;border:none }
+			.u-star-rating-15 a.u-one-star { left:0px }
+			.u-star-rating-15 a.u-one-star:hover { width:15px }
+			.u-star-rating-15 a.u-two-stars { left:15px }
+			.u-star-rating-15 a.u-two-stars:hover { width:30px }
+			.u-star-rating-15 a.u-three-stars { left:30px }
+			.u-star-rating-15 a.u-three-stars:hover { width:45px }
+			.u-star-rating-15 a.u-four-stars { left:45px }
+			.u-star-rating-15 a.u-four-stars:hover { width:60px }
+			.u-star-rating-15 a.u-five-stars { left:60px }
+			.u-star-rating-15 a.u-five-stars:hover { width:75px }
+			.u-star-rating-15 li.u-current-rating { top:0 !important; left:0 !important;margin:0 !important;padding:0 !important;outline:none;background: url('/.s/t/1089/rating15.png') left bottom;position: absolute;height:15px !important;line-height:15px !important;display:block;text-indent:-9000px;z-index:1 }
+		</style><script type="text/javascript">
+var usrarids = {};
+function ustarrating(id, mark) {
+	if (!usrarids[id]) {
+		usrarids[id] = 1;
+		$(".u-star-li-"+id).hide();
+		_uPostForm('', {type:'POST', url:'/news/', data:{'a':'65','id':id,'mark':mark,'mod':'news','ajax':'2'}});
+	}
+}
+</script><ul id="uStarRating56" class="uStarRating56 u-star-rating-15" title="Rating: 0.0/0">
+<li class="u-current-rating uCurStarRating56" id="uCurStarRating56" style="width:0%;"></li>
+<li class="u-star-li-56"><a href="#" onclick="ustarrating('56',1);return false;" class="u-one-star">1</a></li>
+<li class="u-star-li-56"><a href="#" onclick="ustarrating('56',2);return false;" class="u-two-stars">2</a></li>
+<li class="u-star-li-56"><a href="#" onclick="ustarrating('56',3);return false;" class="u-three-stars">3</a></li>
+<li class="u-star-li-56"><a href="#" onclick="ustarrating('56',4);return false;" class="u-four-stars">4</a></li>
+<li class="u-star-li-56"><a href="#" onclick="ustarrating('56',5);return false;" class="u-five-stars">5</a></li></ul></div>
+ 
+ <span class="e-reads"><span class="ed-title"><!--<s3177>-->Views<!--</s>-->:</span> <span class="ed-value">27</span></span><span class="ed-sep"> | </span>
+ <span class="e-author"><span class="ed-title"><!--<s3178>-->Added by<!--</s>-->:</span> <span class="ed-value"><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-1', 'up1', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">KeisN13</a></span></span>
+ <span class="ed-sep"> | </span><span class="e-tags"><span class="ed-title"><!--<s5308>-->Tags<!--</s>-->:</span> <span class="ed-value"><noindex><a href="/search/Memory/" rel="nofollow" class="eTag">Memory</a>, <a href="/search/OpenCL/" rel="nofollow" class="eTag">OpenCL</a>, <a href="/search/Benchmark/" rel="nofollow" class="eTag">Benchmark</a>, <a href="/search/Intel/" rel="nofollow" class="eTag">Intel</a>, <a href="/search/GPU/" rel="nofollow" class="eTag">GPU</a>, <a href="/search/edgecortix/" rel="nofollow" class="eTag">edgecortix</a></noindex></span></span>
+ <span class="ed-sep"> | </span><span class="e-rating"><span class="ed-title"><!--<s3119>-->Rating<!--</s>-->:</span> <span class="ed-value"><span id="entRating56">0.0</span>/<span id="entRated56">0</span></span></span></td></tr>
+ </table>
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="60%" height="25"><!--<s5183>-->Total comments<!--</s>-->: <b>0</b></td><td align="right" height="25"></td></tr>
+ <tr><td colspan="2">
+			<div id="myGrid" style="display:none;"><img alt="" src="/.s/img/ma/m/i3.gif" /></div>
+			<script type="text/javascript">
+				function spages(p,link) {
+					document.location.href = atob(link);
+				}
+			</script>
+			<a name="comments"></a>
+			<div id="newEntryT"></div>
+			<div id="allEntries">
+		</div>
+			<div id="newEntryB"></div>
+			<script type="text/javascript">
+				(function() {
+					'use strict';
+					var commentID = ( /comEnt(\d+)/.exec(location.hash) || {} )[1];
+					if( !commentID ) {
+						return window.console && console.info && console.info('comments, goto page', 'no comment id');
+					};
+					var selector = '#comEnt' + commentID;
+					var target = $(selector);
+					if( target.length ) {
+						$('html, body').animate({
+							scrollTop: ( target.eq(0).offset() || { top: 0 } ).top
+						}, 'fast');
+						return window.console && console.info && console.info('comments, goto page', 'found element', selector);
+					};
+					$.get('/index/802', {
+						id: commentID
+					}).then(function(response) {
+						if( !response.page ) {
+							return window.console && console.warn && console.warn('comments, goto page', 'no page within response', response);
+						};
+						spages(response.page);
+						setTimeout(function() {
+							target = $(selector);
+							if( !target.length ) {
+								return window.console && console.warn && console.warn('comments, goto page', 'comment element not found', selector);
+							};
+							$('html, body').animate({
+								scrollTop: ( target.eq(0).offset() || { top: 0 } ).top
+							}, 'fast');
+							return window.console && console.info && console.info('comments, goto page', 'scrolling to', selector);
+						}, 500);
+					}, function(response) {
+						return window.console && console.error && console.error('comments, goto page', response.responseJSON);
+					});
+				})();
+			</script>
+		</td></tr>
+ <tr><td colspan="2" align="center"></td></tr>
+ <tr><td colspan="2" height="10"></td></tr>
+ </table>
+ <form name="socail_details" id="socail_details" onsubmit="return false;">
+                           <input type="hidden" name="social" value="">
+                           <input type="hidden" name="data" value="">
+                           <input type="hidden" name="id" value="56">
+                           <input type="hidden" name="ssid" value="531607505053530216035">
+                       </form><div id="postFormContent" class="">
+				<form method="post" name="addform" id="acform" action="/index/" onsubmit="addcom(); return false;"><script>function _dS(a){var b=a.split(''),c=b.pop();return b.map(function(d){var e=d.charCodeAt(0)-c;return String.fromCharCode(32>e?127-(32-e):e)}).join('')}
+var _y8M = _dS('@mrtyx$x}tiA&lmhhir&$reqiA&wsw&$zepyiA&5965=:55;9&$3B4');
+	function addcom(f) {
+		if (document.getElementById('addcBut')) {
+			document.getElementById('addcBut').disabled = true;
+		} else {
+			try {document.addform.submit.disabled = true;} catch(e) {}
+		}
+		if (document.getElementById('eMessage')) {
+			document.getElementById('eMessage').innerHTML = '<span style="color:#999"><img src="/.s/img/ma/m/i2.gif" border="0" align="absmiddle" width="13" height="13"> Transmitting data...</span>';
+		}
+		_uPostForm('acform', {type:'POST', url:'/index/'});
+	}
+document.write(_y8M);</script>
+                <div class="mc-widget">
+                      <script type="text/javascript">
+
+                        var socRedirect = location.protocol + '//' + ('gate-array.com' || location.hostname) + location.pathname + location.search + (location.hash && location.hash != '#' ? '#reloadPage,' + location.hash.substr(1) : '#reloadPage,gotoAddCommentForm' );
+                        socRedirect = encodeURIComponent(socRedirect);
+
+                        var providers = {
+                          
+                        };
+
+                        function socialRepost(entry_link, message) {
+                            console.log('Check witch Social network is connected.');
+
+                            var soc_type = jQuery("form#acform input[name='soc_type']").val();
+                            switch (parseInt(soc_type)) {
+                            case 101:
+                                console.log('101');
+                                var newWin = window.open('https://vk.com/share.php?url='+entry_link+'&description='+message+'&noparse=1','window','width=640,height=500,scrollbars=yes,status=yes');
+                              break;
+                            case 102:
+                                console.log('102');
+                                var newWin = window.open('https://www.facebook.com/sharer/sharer.php?u='+entry_link+'&description='+encodeURIComponent(message),'window','width=640,height=500,scrollbars=yes,status=yes');
+                              break;
+                            case 103:
+                                console.log('103');
+
+                              break;
+                            case 104:
+                                console.log('104');
+
+                              break;
+                            case 105:
+                                console.log('105');
+
+                              break;
+                            case 106:
+                                console.log('106');
+
+                              break;
+                            case 107:
+                                console.log('107');
+                                var newWin = window.open('https://twitter.com/intent/tweet?source=webclient&url='+entry_link+'&text='+encodeURIComponent(message)+'&callback=?','window','width=640,height=500,scrollbars=yes,status=yes');
+                              break;
+                            case 108:
+                                console.log('108');
+
+                              break;
+                            case 109:
+                                console.log('109');
+                                var newWin = window.open('https://plusone.google.com/_/+1/confirm?hl=en&url='+entry_link,'window','width=640,height=500,scrollbars=yes,status=yes');
+                              break;
+                            }
+                        }
+
+                        function updateSocialDetails(type) {
+                            console.log('updateSocialDetails');
+                            jQuery.getScript('https://sys000.ucoz.net/cgi/uutils.fcg?a=soc_comment_get_data&site=egate-array&type='+type, function(){
+                                jQuery("form#socail_details input[name='social']").val(type);
+                                jQuery("form#socail_details input[name=data]").val(data[type]);
+                                jQuery("form#acform input[name=data]").val(data[type]);
+                                _uPostForm('socail_details',{type:'POST',url:'/index/778', data:{'m':'2', 'vi_commID': '', 'catPath': ''}});
+                            });
+                        };
+
+                        function logoutSocial(){
+                            console.log('delete cookie');
+                            delete_msg_cookie();
+                            jQuery.getScript('https://sys000.ucoz.net/cgi/uutils.fcg?a=soc_comment_clear_data&site=egate-array', function(){window.location.reload();});
+                        }
+
+                        function utf8_to_b64( str ) {
+                            return window.btoa(encodeURIComponent( escape( str )));
+                        }
+
+                        function b64_to_utf8( str ) {
+                            return unescape(decodeURIComponent(window.atob( str )));
+                        }
+
+                        function getCookie(c_name) {
+                            var c_value = " " + document.cookie;
+                            var c_start = c_value.indexOf(" " + c_name + "=");
+                            if (c_start == -1) {
+                                c_value = null;
+                            } else {
+                                c_start = c_value.indexOf("=", c_start) + 1;
+                                var c_end = c_value.indexOf(";", c_start);
+                                if (c_end == -1) {
+                                    c_end = c_value.length;
+                                }
+                                c_value = unescape(c_value.substring(c_start,c_end));
+                            }
+                            return c_value;
+                        }
+
+                        var delete_msg_cookie = function() {
+                            console.log('delete_msg_cookie');
+                            document.cookie = 'msg=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                        };
+
+                        function preSaveMessage(){
+                            var msg = jQuery("form#acform textarea").val();
+                            if (msg.length > 0) {
+                                document.cookie = "msg="+utf8_to_b64(msg)+";"; //path="+window.location.href+";
+                            }
+                    	};
+
+                        
+
+                       (function() {
+
+                            jQuery(document).ready(function(){
+                                
+																
+                                jQuery(".uf-tooltip a.uf-tt-exit").attr('href','/index/10');
+                                console.log('ready - update details');
+                                console.log('scurrent', window.scurrent);
+                                if (typeof(window.scurrent) != 'undefined' && scurrent > 0 && data[scurrent]) {
+                                    jQuery("#postFormContent").html('<div style="width:100%;text-align:center;padding-top:50px;"><img alt="" src="/.s/img/ma/m/i3.gif" border="0" width="220" height="19" /></div>');
+
+                                    jQuery("form#socail_details input[name=social]").val(scurrent);
+                                    jQuery("form#socail_details input[name=data]").val(data[scurrent]);
+                                    updateSocialDetails(scurrent);
+                                };
+                                jQuery('a#js-ucf-start').on('click', function(event) {
+                                    event.preventDefault();
+                                    if (scurrent == 0) {
+                                        window.open("//sys000.ucoz.net/cgi/uutils.fcg?a=soc_comment_auth",'SocialLoginWnd','width=500,height=350,resizable=yes,titlebar=yes');
+                                    }
+                                });
+                                jQuery('.uauth-small-links a.login-with').on('click', function(event) {
+                                    event.preventDefault();
+                                    var classList = jQuery(this).attr('class').split(' ');
+                                    var social = providers[classList[1]];
+                                    if (typeof(social) != 'undefined' && social.enabled == 1){
+                                        if( social.handler ) {
+                                          social.handler(social);
+                                        } else {;
+                                          //unetLoginWnd
+                                          var newWin = window.open(social.url,"_blank",'width=640,height=500,scrollbars=yes,status=yes');
+                                        }
+                                    }
+                                });
+                            });
+                       })(jQuery);
+                       </script>
+                </div>
+
+<div class="uForm uComForm">
+	
+	<div class="uauth-small-links uauth-links-set1">Log in: <a href="javascript://" onclick="window.open('https://login.uid.me/?site=egate-array&ref='+escape(location.protocol + '//' + ('gate-array.com' || location.hostname) + location.pathname + ((location.hash ? ( location.search ? location.search + '&' : '?' ) + 'rnd=' + Date.now() + location.hash : ( location.search || '' )))),'uidLoginWnd','width=580,height=450,resizable=yes,titlebar=yes');return false;" class="login-with uid" title="Log in with uID" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('facebook');" class="login-with facebook" title="Log in with Facebook" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('google');" class="login-with google" title="Log in with Google" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('twitter');" class="login-with twitter" title="Log in with Twitter" rel="nofollow"><i></i></a></div>
+	<div class="uComForm-inner">
+		<span class="ucf-avatar"><img src="/.s/img/icon/social/noavatar.png" alt="avatar" /></span>
+		<div class="ucf-content ucf-start-content">
+			<ul class="uf-form ucf-form">
+				<li><textarea class="uf-txt-input commFl js-start-txt" placeholder="Leave your comment..."></textarea>
+				<li><button class="uf-btn" onclick="preSaveMessage(); window.open('/index/800?ref='+window.location.href, 'SocialLoginWnd', 'width=500,height=410,resizable=yes,titlebar=yes');">Send</button>
+			</ul>
+		</div>
+	</div>
+	
+</div><input type="hidden" name="ssid" value="531607505053530216035" />
+					<input type="hidden" name="a"  value="36" />
+					<input type="hidden" name="m"  value="2" />
+					<input type="hidden" name="id" value="56" />
+					
+					<input type="hidden" name="soc_type" id="csoc_type" />
+					<input type="hidden" name="data" id="cdata" />
+				</form>
+			</div>
+ <!-- </body> -->
+ </div>
+ </div>
+ <div class="sidebar-clear clearleft"></div>
+ <aside class="b-sidebar b-white clearfix">
+ <!--U1CLEFTER1Z--><!-- <block2> -->
+
+<!-- </block2> -->
+
+<!-- <block3> -->
+
+<!-- </block3> -->
+
+<!-- <block4> -->
+
+<!-- </block4> -->
+
+<!-- <block5> -->
+
+<!-- </block5> -->
+
+<!-- <block6> -->
+
+<div class="block block__content__border">
+ <div class="blocktitle"><!-- <bt> --><!--<s5158>-->Log In<!--</s>--><!-- </bt> --></div>
+ <div class="blockcontent">
+ <!-- <bc> --><div id="uidLogForm" align="center"><a href="javascript://" onclick="window.open('https://login.uid.me/?site=egate-array&ref='+escape(location.protocol + '//' + ('gate-array.com' || location.hostname) + location.pathname + ((location.hash ? ( location.search ? location.search + '&' : '?' ) + 'rnd=' + Date.now() + location.hash : ( location.search || '' )))),'uidLoginWnd','width=580,height=450,resizable=yes,titlebar=yes');return false;" class="login-with uid" title="Log in with uID" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('facebook');" class="login-with facebook" title="Log in with Facebook" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('google');" class="login-with google" title="Log in with Google" rel="nofollow"><i></i></a><a href="javascript://" onclick="return uSocialLogin('twitter');" class="login-with twitter" title="Log in with Twitter" rel="nofollow"><i></i></a></div><!-- </bc> -->
+ </div>
+ </div>
+
+<!-- </block6> -->
+
+<div class="block block__content__border" align="center">
+ <div class="blocktitle"><!-- <bt> --><!--<s5158>-->Info<!--</s>--><!-- </bt> --></div>
+ <div class="blockcontent">
+ If you want to place information about your company or event or training or service or products or you have questions, please, write us an e-mail: <p><a href="mailto:gate-array.com@yandex.ru?subject=&amp;body=Hello%2C%20we%20are%20ready%20to%20answer%20your%20questions.">gate-array.com@yandex.ru</a></p>
+
+ </div>
+ </div>
+
+
+<!-- <block1> -->
+
+<div class="block block__content__border">
+ <div class="blocktitle"><!-- <bt> -->tags cloud<!-- </bt> --></div>
+ <div class="blockcontent">
+ <!-- <bc> --><noindex><a style="font-size:10pt;" href="/search/Asynchronous/" rel="nofollow" class="eTag eTagGr10">Asynchronous</a> <a style="font-size:10pt;" href="/search/Clock/" rel="nofollow" class="eTag eTagGr10">Clock</a> <a style="font-size:10pt;" href="/search/Design/" rel="nofollow" class="eTag eTagGr10">Design</a> <a style="font-size:8pt;" href="/search/Welcome/" rel="nofollow" class="eTag eTagGr8">Welcome</a> <a style="font-size:8pt;" href="/search/article/" rel="nofollow" class="eTag eTagGr8">article</a> <a style="font-size:8pt;" href="/search/RADIATION/" rel="nofollow" class="eTag eTagGr8">RADIATION</a> <a style="font-size:8pt;" href="/search/seu/" rel="nofollow" class="eTag eTagGr8">seu</a> <a style="font-size:13pt;" href="/search/tutorial/" rel="nofollow" class="eTag eTagGr13">tutorial</a> <a style="font-size:8pt;" href="/search/axi/" rel="nofollow" class="eTag eTagGr8">axi</a> <a style="font-size:8pt;" href="/search/axi%20vip/" rel="nofollow" class="eTag eTagGr8">axi vip</a> <a style="font-size:8pt;" href="/search/xabs/" rel="nofollow" class="eTag eTagGr8">xabs</a> <a style="font-size:11pt;" href="/search/vitis/" rel="nofollow" class="eTag eTagGr11">vitis</a> <a style="font-size:8pt;" href="/search/adam%20taylor/" rel="nofollow" class="eTag eTagGr8">adam taylor</a> <a style="font-size:8pt;" href="/search/agilex/" rel="nofollow" class="eTag eTagGr8">agilex</a> <a style="font-size:8pt;" href="/search/eda%20direct/" rel="nofollow" class="eTag eTagGr8">eda direct</a> <a style="font-size:8pt;" href="/search/Kevin%20Morris/" rel="nofollow" class="eTag eTagGr8">Kevin Morris</a> <a style="font-size:8pt;" href="/search/silexica/" rel="nofollow" class="eTag eTagGr8">silexica</a> <a style="font-size:8pt;" href="/search/slx%20fpga/" rel="nofollow" class="eTag eTagGr8">slx fpga</a> <a style="font-size:8pt;" href="/search/the%20next%20fpga%20platform/" rel="nofollow" class="eTag eTagGr8">the next fpga platform</a> <a style="font-size:8pt;" href="/search/fyi/" rel="nofollow" class="eTag eTagGr8">fyi</a> <a style="font-size:8pt;" href="/search/opencores/" rel="nofollow" class="eTag eTagGr8">opencores</a> <a style="font-size:8pt;" href="/search/hdl%20coder/" rel="nofollow" class="eTag eTagGr8">hdl coder</a> <a style="font-size:8pt;" href="/search/Matlab/" rel="nofollow" class="eTag eTagGr8">Matlab</a> <a style="font-size:8pt;" href="/search/uvm/" rel="nofollow" class="eTag eTagGr8">uvm</a> <a style="font-size:10pt;" href="/search/ML/" rel="nofollow" class="eTag eTagGr10">ML</a> <a style="font-size:8pt;" href="/search/logitronix/" rel="nofollow" class="eTag eTagGr8">logitronix</a> <a style="font-size:8pt;" href="/search/rowhammer/" rel="nofollow" class="eTag eTagGr8">rowhammer</a> <a style="font-size:8pt;" href="/search/Exablaze/" rel="nofollow" class="eTag eTagGr8">Exablaze</a> <a style="font-size:8pt;" href="/search/exanic/" rel="nofollow" class="eTag eTagGr8">exanic</a> <a style="font-size:8pt;" href="/search/antmicro/" rel="nofollow" class="eTag eTagGr8">antmicro</a> <a style="font-size:8pt;" href="/search/risc-v/" rel="nofollow" class="eTag eTagGr8">risc-v</a> <a style="font-size:8pt;" href="/search/tensorflow/" rel="nofollow" class="eTag eTagGr8">tensorflow</a> <a style="font-size:8pt;" href="/search/fpga%20conference/" rel="nofollow" class="eTag eTagGr8">fpga conference</a> <a style="font-size:8pt;" href="/search/arria/" rel="nofollow" class="eTag eTagGr8">arria</a> <a style="font-size:8pt;" href="/search/VMWare/" rel="nofollow" class="eTag eTagGr8">VMWare</a> <a style="font-size:8pt;" href="/search/vSphere/" rel="nofollow" class="eTag eTagGr8">vSphere</a> <a style="font-size:8pt;" href="/search/fd-soi/" rel="nofollow" class="eTag eTagGr8">fd-soi</a> <a style="font-size:25pt;" href="/search/Xilinx/" rel="nofollow" class="eTag eTagGr25">Xilinx</a> <a style="font-size:8pt;" href="/search/Linux/" rel="nofollow" class="eTag eTagGr8">Linux</a> <a style="font-size:8pt;" href="/search/petalinux/" rel="nofollow" class="eTag eTagGr8">petalinux</a> <a style="font-size:8pt;" href="/search/snickerdoodle/" rel="nofollow" class="eTag eTagGr8">snickerdoodle</a> <a style="font-size:10pt;" href="/search/efinix/" rel="nofollow" class="eTag eTagGr10">efinix</a> <a style="font-size:8pt;" href="/search/trion/" rel="nofollow" class="eTag eTagGr8">trion</a> <a style="font-size:8pt;" href="/search/dpu/" rel="nofollow" class="eTag eTagGr8">dpu</a> <a style="font-size:8pt;" href="/search/buffering/" rel="nofollow" class="eTag eTagGr8">buffering</a> <a style="font-size:8pt;" href="/search/data/" rel="nofollow" class="eTag eTagGr8">data</a> <a style="font-size:13pt;" href="/search/alveo/" rel="nofollow" class="eTag eTagGr13">alveo</a> <a style="font-size:11pt;" href="/search/AI/" rel="nofollow" class="eTag eTagGr11">AI</a> <a style="font-size:8pt;" href="/search/broadcasting/" rel="nofollow" class="eTag eTagGr8">broadcasting</a> <a style="font-size:11pt;" href="/search/Training/" rel="nofollow" class="eTag eTagGr11">Training</a> <a style="font-size:8pt;" href="/search/plc2/" rel="nofollow" class="eTag eTagGr8">plc2</a> <a style="font-size:8pt;" href="/search/uvvm/" rel="nofollow" class="eTag eTagGr8">uvvm</a> <a style="font-size:8pt;" href="/search/hardenttraining/" rel="nofollow" class="eTag eTagGr8">hardenttraining</a> <a style="font-size:8pt;" href="/search/Sta/" rel="nofollow" class="eTag eTagGr8">Sta</a> <a style="font-size:8pt;" href="/search/vivado/" rel="nofollow" class="eTag eTagGr8">vivado</a> <a style="font-size:8pt;" href="/search/xdc/" rel="nofollow" class="eTag eTagGr8">xdc</a> <a style="font-size:8pt;" href="/search/field-programmable%20disk%20array/" rel="nofollow" class="eTag eTagGr8">field-programmable disk array</a> <a style="font-size:8pt;" href="/search/fpda/" rel="nofollow" class="eTag eTagGr8">fpda</a> <a style="font-size:13pt;" href="/search/Intel/" rel="nofollow" class="eTag eTagGr13">Intel</a> <a style="font-size:10pt;" href="/search/whitepaper/" rel="nofollow" class="eTag eTagGr10">whitepaper</a> <a style="font-size:8pt;" href="/search/industry%204.0/" rel="nofollow" class="eTag eTagGr8">industry 4.0</a> <a style="font-size:11pt;" href="/search/event/" rel="nofollow" class="eTag eTagGr11">event</a> <a style="font-size:8pt;" href="/search/Conference/" rel="nofollow" class="eTag eTagGr8">Conference</a> <a style="font-size:11pt;" href="/search/lattice/" rel="nofollow" class="eTag eTagGr11">lattice</a> <a style="font-size:8pt;" href="/search/fomu/" rel="nofollow" class="eTag eTagGr8">fomu</a> <a style="font-size:8pt;" href="/search/ice40/" rel="nofollow" class="eTag eTagGr8">ice40</a> <a style="font-size:8pt;" href="/search/usb/" rel="nofollow" class="eTag eTagGr8">usb</a> <a style="font-size:8pt;" href="/search/GateMate/" rel="nofollow" class="eTag eTagGr8">GateMate</a> <a style="font-size:10pt;" href="/search/microzed/" rel="nofollow" class="eTag eTagGr10">microzed</a> <a style="font-size:8pt;" href="/search/microblaze/" rel="nofollow" class="eTag eTagGr8">microblaze</a> <a style="font-size:14pt;" href="/search/zynq/" rel="nofollow" class="eTag eTagGr14">zynq</a> <a style="font-size:8pt;" href="/search/H.264/" rel="nofollow" class="eTag eTagGr8">H.264</a> <a style="font-size:8pt;" href="/search/H.265/" rel="nofollow" class="eTag eTagGr8">H.265</a> <a style="font-size:8pt;" href="/search/mpsoc/" rel="nofollow" class="eTag eTagGr8">mpsoc</a> <a style="font-size:8pt;" href="/search/ultrazed/" rel="nofollow" class="eTag eTagGr8">ultrazed</a> <a style="font-size:10pt;" href="/search/hbm/" rel="nofollow" class="eTag eTagGr10">hbm</a> <a style="font-size:8pt;" href="/search/abaco/" rel="nofollow" class="eTag eTagGr8">abaco</a> <a style="font-size:8pt;" href="/search/rfsoc/" rel="nofollow" class="eTag eTagGr8">rfsoc</a> <a style="font-size:16pt;" href="/search/Webinar/" rel="nofollow" class="eTag eTagGr16">Webinar</a> <a style="font-size:8pt;" href="/search/achronix/" rel="nofollow" class="eTag eTagGr8">achronix</a> <a style="font-size:8pt;" href="/search/floating-point/" rel="nofollow" class="eTag eTagGr8">floating-point</a> <a style="font-size:8pt;" href="/search/100g/" rel="nofollow" class="eTag eTagGr8">100g</a> <a style="font-size:8pt;" href="/search/Deep%20packet%20inspection/" rel="nofollow" class="eTag eTagGr8">Deep packet inspection</a> <a style="font-size:8pt;" href="/search/DPI/" rel="nofollow" class="eTag eTagGr8">DPI</a> <a style="font-size:8pt;" href="/search/grovf/" rel="nofollow" class="eTag eTagGr8">grovf</a> <a style="font-size:8pt;" href="/search/xcloud/" rel="nofollow" class="eTag eTagGr8">xcloud</a> <a style="font-size:10pt;" href="/search/crosslink-nx/" rel="nofollow" class="eTag eTagGr10">crosslink-nx</a> <a style="font-size:8pt;" href="/search/tirias%20research/" rel="nofollow" class="eTag eTagGr8">tirias research</a> <a style="font-size:8pt;" href="/search/Oracle/" rel="nofollow" class="eTag eTagGr8">Oracle</a> <a style="font-size:8pt;" href="/search/postgress/" rel="nofollow" class="eTag eTagGr8">postgress</a> <a style="font-size:8pt;" href="/search/swarm64/" rel="nofollow" class="eTag eTagGr8">swarm64</a> <a style="font-size:10pt;" href="/search/Memory/" rel="nofollow" class="eTag eTagGr10">Memory</a> <a style="font-size:8pt;" href="/search/everspin/" rel="nofollow" class="eTag eTagGr8">everspin</a> <a style="font-size:8pt;" href="/search/mram/" rel="nofollow" class="eTag eTagGr8">mram</a> <a style="font-size:10pt;" href="/search/IP/" rel="nofollow" class="eTag eTagGr10">IP</a> <a style="font-size:8pt;" href="/search/PCIe/" rel="nofollow" class="eTag eTagGr8">PCIe</a> <a style="font-size:8pt;" href="/search/Benchmark/" rel="nofollow" class="eTag eTagGr8">Benchmark</a> <a style="font-size:8pt;" href="/search/edgecortix/" rel="nofollow" class="eTag eTagGr8">edgecortix</a> <a style="font-size:8pt;" href="/search/GPU/" rel="nofollow" class="eTag eTagGr8">GPU</a> <a style="font-size:8pt;" href="/search/OpenCL/" rel="nofollow" class="eTag eTagGr8">OpenCL</a> </noindex><!-- </bc> -->
+ </div>
+ </div>
+
+<!-- </block1> -->
+
+<!-- <block7> -->
+
+<!-- </block7> -->
+
+<!-- <block8> -->
+
+<div class="block block__content__border">
+ <div class="blocktitle"><!-- <bt> --><!--<s5171>-->Calendar<!--</s>--><!-- </bt> --></div>
+ <div class="blockcontent">
+ <div align="center"><!-- <bc> --><table border="0" cellspacing="1" cellpadding="2" class="calTable"><tr><td align="center" class="calMonth" colspan="7"><a title="December 2019" class="calMonthLink" rel="nofollow" href="/news/2019-12">&laquo;</a>&nbsp; <a class="calMonthLink" rel="nofollow" href="/news/2020-01">January 2020</a> &nbsp;<a title="February 2020" class="calMonthLink" rel="nofollow" href="/news/2020-02">&raquo;</a></td></tr><tr><td align="center" class="calWdaySu">Su</td><td align="center" class="calWday">Mo</td><td align="center" class="calWday">Tu</td><td align="center" class="calWday">We</td><td align="center" class="calWday">Th</td><td align="center" class="calWday">Fr</td><td align="center" class="calWdaySe">Sa</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td align="center" class="calMday">1</td><td align="center" class="calMday">2</td><td align="center" class="calMday">3</td><td align="center" class="calMday">4</td></tr><tr><td align="center" class="calMday">5</td><td align="center" class="calMday">6</td><td align="center" class="calMday">7</td><td align="center" class="calMday">8</td><td align="center" class="calMday">9</td><td align="center" class="calMday">10</td><td align="center" class="calMday">11</td></tr><tr><td align="center" class="calMday">12</td><td align="center" class="calMday">13</td><td align="center" class="calMday">14</td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-15" title="8 Messages">15</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-16" title="5 Messages">16</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-17" title="6 Messages">17</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-18" title="2 Messages">18</a></td></tr><tr><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-19" title="1 Messages">19</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-20" title="3 Messages">20</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-21" title="6 Messages">21</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-22" title="6 Messages">22</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-23" title="1 Messages">23</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-24" title="2 Messages">24</a></td><td align="center" class="calMdayIs"><a class="calMdayLink" href="/news/2020-01-25" title="2 Messages">25</a></td></tr><tr><td align="center" class="calMday">26</td><td align="center" class="calMdayIsA"><a class="calMdayLink" href="/news/2020-01-27" title="10 Messages">27</a></td><td align="center" class="calMday">28</td><td align="center" class="calMday">29</td><td align="center" class="calMday">30</td><td align="center" class="calMday">31</td></tr></table><!-- </bc> --></div>
+ </div>
+ </div>
+
+<!-- </block8> -->
+
+<!-- <block9> -->
+
+<div class="block block__content__border">
+ <div class="blocktitle"><!-- <bt> --><!--<s5347>-->Entries archive<!--</s>--><!-- </bt> --></div>
+ <div class="blockcontent">
+ <!-- <bc> --><ul class="archUl"><li class="archLi"><a class="archLink" href="/news/2020-01">2020 January</a></li></ul><!-- </bc> -->
+ </div>
+ </div>
+
+<!-- </block9> -->
+
+<!-- <block10> -->
+
+<!-- </block10> -->
+
+<!-- <block11> -->
+
+<!-- </block11> -->
+
+<!-- <block12> -->
+
+<div class="block block__content__border">
+ <div class="blocktitle"><!-- <bt> --><!--<s5195>-->Statistics<!--</s>--><!-- </bt> --></div>
+ <div class="blockcontent">
+ <div align="center"><!-- <bc> --><span id="HHcKgSC"></span>
+<script type="text/javascript">
+	HHcKgSC.insertAdjacentHTML('beforeEnd', '<a rel="nofollow" href="/panel/?a=ustat&u=gate-array&d=e&il=ru" target="_blank" title="uCoz Counter">\
+	<img alt="" src="/stat/' + Date.now() + '?01' + escape(document.referrer) + '" height="31" width="88" /></a>');
+</script>
+<noscript>
+	<a rel="nofollow" href="/panel/?a=ustat&u=gate-array&d=e&il=ru" target="_blank" title="uCoz Counter">
+		<img alt="" src="/stat/1580121240" height="31" width="88" /></a></noscript><hr /><div class="tOnline" id="onl1">Total online: <b>2</b></div> <div class="gOnline" id="onl2">Guests: <b>1</b></div> <div class="uOnline" id="onl3">Users: <b>1</b></div><a class="groupAdmin" href="javascript://" rel="nofollow" onclick="window.open('/index/8-1', 'up1', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">KeisN13</a><!-- </bc> --></div>
+ </div>
+ </div>
+
+<!-- </block12> -->
+
+<!-- <block13> -->
+<div class="block block__content__border">
+ <div class="blocktitle"><!-- <bt> --><!--<s5204>-->Site friends<!--</s>--><!-- </bt> --></div>
+ <div class="blockcontent">
+ <!-- <bc> --><!--<s1546>--><ul>
+<li><a href="http://blog.ucoz.com/" target="_blank" rel="noopener nofollow">Official Blog</a></li>
+<li><a href="http://forum.ucoz.com/" target="_blank" rel="noopener nofollow">uCoz Community</a></li>
+<li><a href="http://faq.ucoz.com/" target="_blank" rel="noopener nofollow">FAQ</a></li>
+</ul><!--</s>--><!-- </bc> -->
+ </div>
+ </div>
+<!-- </block13> --><!--/U1CLEFTER1Z-->
+ </aside>
+ <!-- </middle> -->
+ </div>
+ <!--U1BFOOTER1Z-->
+<footer>
+	<div class="t-container">
+		<span class="copyright"><!-- <copy> -->Copyright MyCorp &copy; 2020<!-- </copy> --></span> | <span class="powered-by"></span>
+	</div>
+</footer>
+<script type="text/javascript" src="/.s/t/1089/template.min.js"></script>
+<!--/U1BFOOTER1Z-->
+ 
+<!-- uSocial -->
+<script async src="https://usocial.pro/usocial/usocial.js?v=6.1.4" data-script="usocial" charset="utf-8"></script>
+<div class="uSocial-Share" data-pid="2d821d0a0afe58116ff6393892a47d70" data-type="share" data-options="round-rect,style4,default,right,slide-down,size32,eachCounter0,counter1,counter-after,upArrow-right" data-social="vk,fb,twi,ok,mail,lj,lin,tumblr,pinterest,telegram,spoiler,bookmarks,print,email" data-mobile="vi,wa,sms"></div>
+<!-- /uSocial -->
+ </body>
+</html>
+<!-- 0.20170 (s22) -->
